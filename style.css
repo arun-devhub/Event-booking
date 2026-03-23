@@ -1,0 +1,19 @@
+body {
+  font-family: Arial;
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  padding: 10px;
+}
+section {
+  padding: 40px;
+}
+.event-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+}
