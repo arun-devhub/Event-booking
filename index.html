@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Booking</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Event Ticket Booking</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header id="navbar">
+<!-- HEADER -->
+<header id="navbar">
   <h1>Event Booking</h1>
   <nav>
     <a href="#home" class="nav-link">Home</a>
@@ -18,18 +18,64 @@
   </nav>
 </header>
 
+<!-- HOME -->
 <section id="home">
   <h2>Welcome to Event Booking</h2>
-  <p>Book tickets for movies, concerts, and sports events.</p>
+  <p>Book tickets for movies, concerts, and sports events easily.</p>
 </section>
 
+<!-- EVENTS -->
 <section id="events">
   <h2>Events</h2>
+
+  <div class="event-container">
+
+    <!-- EVENT 1 -->
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x150" alt="Event">
+      <h3>Avengers Movie</h3>
+      <p>Date: 25 March</p>
+      <p>Location: Chennai</p>
+      <button>Book Ticket</button>
+    </div>
+
+    <!-- EVENT 2 -->
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x150" alt="Event">
+      <h3>Coldplay Concert</h3>
+      <p>Date: 28 March</p>
+      <p>Location: Mumbai</p>
+      <button>Book Ticket</button>
+    </div>
+
+    <!-- EVENT 3 -->
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x150" alt="Event">
+      <h3>IPL Match</h3>
+      <p>Date: 30 March</p>
+      <p>Location: Chennai</p>
+      <button>Book Ticket</button>
+    </div>
+
+  </div>
 </section>
 
+<!-- BOOKING SECTION (UI ONLY FOR NOW) -->
+<section id="booking">
+  <h2>Book Your Ticket</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name"><br><br>
+    <input type="email" placeholder="Your Email"><br><br>
+    <input type="number" placeholder="Number of Tickets"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
 <footer id="contact">
   <p>Contact: support@email.com</p>
 </footer>
-   
+
 </body>
 </html>

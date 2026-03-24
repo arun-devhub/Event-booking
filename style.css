@@ -1,19 +1,97 @@
+/* RESET */
 body {
-  font-family: Arial;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
+
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: black;
   color: white;
-  padding: 10px;
+  padding: 15px;
 }
+
+header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* SECTIONS */
 section {
   padding: 40px;
+  text-align: center;
 }
+
+/* EVENT CONTAINER */
+.event-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* EVENT CARD */
 .event-card {
+  width: 250px;
   border: 1px solid #ccc;
   padding: 15px;
-  margin: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGE */
+.event-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* BUTTON */
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkblue;
+}
+
+/* FORM */
+form input {
+  padding: 10px;
+  width: 250px;
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: white;
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  .event-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
