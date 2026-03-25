@@ -24,11 +24,11 @@
   <p>Book tickets for movies, concerts, and sports events easily.</p>
 </section>
 
-<!-- EVENTS -->
-<section id="events">
-  <h2>Events</h2>
+      <!-- EVENTS -->
+    <section id="events">
+    <h2>Events</h2>
 
-  <div class="event-container">
+    <div class="event-container">
 
     <!-- EVENT 1 -->
     <div class="event-card">
@@ -36,7 +36,9 @@
       <h3>Avengers Movie</h3>
       <p>Date: 25 March</p>
       <p>Location: Chennai</p>
-      <button>Book Ticket</button>
+      <button id="book-1" onclick="bookTicket('book-1','Avengers Movie')">
+       Book Ticket
+      </button>
     </div>
 
     <!-- EVENT 2 -->
@@ -45,18 +47,22 @@
       <h3>Coldplay Concert</h3>
       <p>Date: 28 March</p>
       <p>Location: Mumbai</p>
-      <button>Book Ticket</button>
+      <button id="book-2" onclick="bookTicket('book-2','Coldplay Concert')">
+      Book Ticket
+      </button>
     </div>
-
+    
     <!-- EVENT 3 -->
     <div class="event-card">
       <img src="https://via.placeholder.com/300x150" alt="Event">
       <h3>IPL Match</h3>
       <p>Date: 30 March</p>
       <p>Location: Chennai</p>
-      <button>Book Ticket</button>
+     <button id="book-3" onclick="bookTicket('book-3','IPL Match')">
+      Book Ticket
+    </button>
     </div>
-
+   
   </div>
 </section>
 
@@ -64,18 +70,45 @@
 <section id="booking">
   <h2>Book Your Ticket</h2>
 
-  <form>
-    <input type="text" placeholder="Your Name"><br><br>
-    <input type="email" placeholder="Your Email"><br><br>
-    <input type="number" placeholder="Number of Tickets"><br><br>
-    <button type="submit">Submit</button>
-  </form>
+ <form id="booking-form">
+
+  <input type="text" id="name" placeholder="Your Name">
+  <small id="name-error"></small><br><br>
+
+  <input type="email" id="email" placeholder="Your Email">
+  <small id="email-error"></small><br><br>
+
+  <select id="event">
+    <option value="">Select Event</option>
+    <option value="avengers">Avengers Movie</option>
+    <option value="coldplay">Coldplay Concert</option>
+    <option value="ipl">IPL Match</option>
+  </select>
+  <small id="event-error"></small><br><br>
+
+  <input type="number" id="tickets" placeholder="Tickets (1-10)">
+  <small id="tickets-error"></small><br><br>
+
+  <button id="submit-btn" type="submit">
+    <span class="btn-text">Book Now</span>
+    <span id="btn-loader" style="display:none;">Loading...</span>
+  </button>
+
+</form>
+
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
   <p>Contact: support@email.com</p>
 </footer>
+
+<div id="toast" class="toast">
+  <span id="toast-icon"></span>
+  <span id="toast-msg"></span>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

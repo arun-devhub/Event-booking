@@ -95,3 +95,13 @@ footer {
     align-items: center;
   }
 }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 15px;
+  display: none;
+  border-radius: 5px;
+}
