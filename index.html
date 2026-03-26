@@ -2,113 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Event Ticket Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book tickets for movies, concerts, and sports events easily online.">
+  <title>EventHub – Book Tickets Online</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER -->
-<header id="navbar">
-  <h1>Event Booking</h1>
-  <nav>
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#events" class="nav-link">Events</a>
-    <a href="#booking" class="nav-link">Booking</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <div class="header-inner">
+    <div class="logo">
+      <i class="fas fa-ticket-alt"></i>
+      <span>EventHub</span>
+    </div>
+    <nav>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="#booking" class="nav-link">Book Now</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
 </header>
 
-<!-- HOME -->
+<!-- ===== HERO SECTION ===== -->
 <section id="home">
-  <h2>Welcome to Event Booking</h2>
-  <p>Book tickets for movies, concerts, and sports events easily.</p>
-</section>
-
-      <!-- EVENTS -->
-    <section id="events">
-    <h2>Events</h2>
-
-    <div class="event-container">
-
-    <!-- EVENT 1 -->
-    <div class="event-card">
-      <img src="https://via.placeholder.com/300x150" alt="Event">
-      <h3>Avengers Movie</h3>
-      <p>Date: 25 March</p>
-      <p>Location: Chennai</p>
-      <button id="book-1" onclick="bookTicket('book-1','Avengers Movie')">
-       Book Ticket
-      </button>
+  <div class="hero-content reveal">
+    <span class="badge"><i class="fas fa-fire"></i> Trending Events</span>
+    <h1>Discover &amp; Book<br>Amazing Events</h1>
+    <p>Movies, Concerts, Sports — find the best events near you and book your seat in seconds.</p>
+    <div class="hero-btns">
+      <a href="#events" class="btn btn-primary">Browse Events</a>
+      <a href="#booking" class="btn btn-outline">Book a Ticket</a>
     </div>
-
-    <!-- EVENT 2 -->
-    <div class="event-card">
-      <img src="https://via.placeholder.com/300x150" alt="Event">
-      <h3>Coldplay Concert</h3>
-      <p>Date: 28 March</p>
-      <p>Location: Mumbai</p>
-      <button id="book-2" onclick="bookTicket('book-2','Coldplay Concert')">
-      Book Ticket
-      </button>
+  </div>
+  <div class="hero-stats reveal">
+    <div class="stat">
+      <strong>500+</strong>
+      <span>Events</span>
     </div>
-    
-    <!-- EVENT 3 -->
-    <div class="event-card">
-      <img src="https://via.placeholder.com/300x150" alt="Event">
-      <h3>IPL Match</h3>
-      <p>Date: 30 March</p>
-      <p>Location: Chennai</p>
-     <button id="book-3" onclick="bookTicket('book-3','IPL Match')">
-      Book Ticket
-    </button>
+    <div class="stat">
+      <strong>50K+</strong>
+      <span>Happy Users</span>
     </div>
-   
+    <div class="stat">
+      <strong>100+</strong>
+      <span>Cities</span>
+    </div>
   </div>
 </section>
 
-<!-- BOOKING SECTION (UI ONLY FOR NOW) -->
-<section id="booking">
-  <h2>Book Your Ticket</h2>
+<!-- ===== EVENTS SECTION ===== -->
+<section id="events">
+  <div class="section-header reveal">
+    <h2>Upcoming Events</h2>
+    <p>Don't miss out — grab your tickets before they sell out!</p>
+  </div>
 
- <form id="booking-form">
+  <!-- Category Filter Buttons -->
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="movie">🎬 Movie</button>
+    <button class="filter-btn" data-filter="concert">🎵 Concert</button>
+    <button class="filter-btn" data-filter="sports">🏏 Sports</button>
+  </div>
 
-  <input type="text" id="name" placeholder="Your Name">
-  <small id="name-error"></small><br><br>
-
-  <input type="email" id="email" placeholder="Your Email">
-  <small id="email-error"></small><br><br>
-
-  <select id="event">
-    <option value="">Select Event</option>
-    <option value="avengers">Avengers Movie</option>
-    <option value="coldplay">Coldplay Concert</option>
-    <option value="ipl">IPL Match</option>
-  </select>
-  <small id="event-error"></small><br><br>
-
-  <input type="number" id="tickets" placeholder="Tickets (1-10)">
-  <small id="tickets-error"></small><br><br>
-
-  <button id="submit-btn" type="submit">
-    <span class="btn-text">Book Now</span>
-    <span id="btn-loader" style="display:none;">Loading...</span>
-  </button>
-
-</form>
-
+  <!-- Cards injected by JavaScript -->
+  <div class="event-container" id="event-grid"></div>
 </section>
 
-<!-- FOOTER -->
+<!-- ===== BOOKING SECTION ===== -->
+<section id="booking">
+  <div class="section-header reveal">
+    <h2>Book Your Ticket</h2>
+    <p>Fill in your details below and confirm your booking.</p>
+  </div>
+
+  <form id="booking-form" class="reveal" novalidate>
+
+    <div class="form-group">
+      <label for="name"><i class="fas fa-user"></i> Full Name</label>
+      <input type="text" id="name" placeholder="e.g. Arun Kumar" autocomplete="name">
+      <small id="name-error" class="error-msg"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+      <input type="email" id="email" placeholder="e.g. arun@email.com" autocomplete="email">
+      <small id="email-error" class="error-msg"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="event"><i class="fas fa-calendar-check"></i> Select Event</label>
+      <select id="event">
+        <option value="">-- Choose an Event --</option>
+        <option value="avengers">Avengers: Secret Wars</option>
+        <option value="ar-rahman">AR Rahman Live 2026</option>
+        <option value="ipl">IPL 2026 Final</option>
+      </select>
+      <small id="event-error" class="error-msg"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="tickets"><i class="fas fa-sort-numeric-up"></i> Number of Tickets</label>
+      <input type="number" id="tickets" placeholder="Enter 1 – 10" min="1" max="10">
+      <small id="tickets-error" class="error-msg"></small>
+    </div>
+
+    <button id="submit-btn" type="submit">
+      <span class="btn-text"><i class="fas fa-check-circle"></i> Confirm Booking</span>
+      <span id="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Processing...</span>
+    </button>
+
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer id="contact">
-  <p>Contact: support@email.com</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <i class="fas fa-ticket-alt"></i>
+      <span>EventHub</span>
+      <p>Your one-stop destination for event tickets.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#events">Events</a>
+      <a href="#booking">Book Ticket</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> support@eventhub.com</p>
+      <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2026 EventHub. Built with ❤️ by Arun.</p>
 </footer>
 
+<!-- ===== TOAST ===== -->
 <div id="toast" class="toast">
-  <span id="toast-icon"></span>
+  <i class="fas fa-check-circle"></i>
   <span id="toast-msg"></span>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
