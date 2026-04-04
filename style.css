@@ -79,20 +79,33 @@ nav a {
 .event-card {
   background: white;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
+}
+
+.card-body{
+   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .event-card img {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card-body h3{
+  min-height: auto;
 }
 
 .book-btn {
-  background: green;
+  background-color: green;
   color: white;
   border: none;
   padding: 8px;
-  margin-top: 10px;
   cursor: pointer;
+  margin-top: auto;
 }
 
 /* booking */
